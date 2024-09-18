@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You, Madiha!</title>
+    <style>
+        /* Base styles for the page */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #FFDEE9, #B5FFFC);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        h1 {
+            position: absolute;
+            z-index: 10;
+            font-size: 4em;
+            color: #fff;
+            text-align: center;
+            animation: fadeIn 5s ease-in-out;
+            margin: 0;
+            padding: 0;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Heart styles */
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            transform: rotate(45deg);
+            animation: floatUp 5s infinite ease-in-out;
+            opacity: 0.8;
+        }
+
+        .heart::before, .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: red;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+
+        @keyframes floatUp {
+            0% {
+                bottom: -10%;
+                opacity: 1;
+            }
+            100% {
+                bottom: 110%;
+                opacity: 0;
+                transform: translateX(30px) rotate(45deg);
+            }
+        }
+
+        /* Adding custom hearts */
+        .heart-1 {
+            left: 20%;
+            animation-duration: 4s;
+            animation-delay: 0s;
+        }
+
+        .heart-2 {
+            left: 40%;
+            animation-duration: 5s;
+            animation-delay: 1s;
+        }
+
+        .heart-3 {
+            left: 60%;
+            animation-duration: 6s;
+            animation-delay: 2s;
+        }
+
+        .heart-4 {
+            left: 80%;
+            animation-duration: 7s;
+            animation-delay: 3s;
+        }
+
+        /* Adding Madiha's photo */
+        .profile {
+            position: relative;
+            z-index: 5;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            background-image: url('/mnt/data/WhatsApp Image 2024-09-14 at 12.16.12_8a732e3c.jpg');
+            background-size: cover;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Floating animation for the photo */
+        @keyframes float {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Button styles */
+        .btn-container {
+            position: absolute;
+            bottom: 10%;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .btn {
+            background-color: #ff4b5c;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 30px;
+            color: white;
+            font-size: 1.2em;
+            font-weight: bold;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            animation: fadeInBtn 5s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: #ff7b7b;
+            transform: translateY(-5px);
+        }
+
+        @keyframes fadeInBtn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Extra effects */
+        .background-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* CSS for text effects */
+        .message {
+            font-size: 2em;
+            color: #fff;
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            animation: typing 5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: white; }
+        }
+
+        /* CSS responsiveness for small devices */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .profile {
+                width: 200px;
+                height: 200px;
+            }
+
+            .btn {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="background-overlay"></div>
+
+    <h1>I Love You, Madiha!</h1>
+
+    <!-- Floating hearts -->
+    <div class="heart heart-1"></div>
+    <div class="heart heart-2"></div>
+    <div class="heart heart-3"></div>
+    <div class="heart heart-4"></div>
+
+    <!-- Madiha's picture -->
+    <div class="profile"></div>
+
+    <!-- Message typing effect -->
+    <div class="message">
+        You're my world, my heart, my soul, and I will always love you.
+    </div>
+
+    <!-- Button -->
+    <div class="btn-container">
+        <button class="btn" onclick="showLove()">Click Me!</button>
+    </div>
+
+    <script>
+        // Add JavaScript for interactivity
+        function showLove() {
+            alert('I love you, Madiha!');
+        }
+
+        // Function to create hearts dynamically
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+
+</body>
+</html>
